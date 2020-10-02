@@ -55,7 +55,7 @@ Simulation of a runner. A runner picks up all cards from the tray every 5 minute
 
 
 ### How to use
-- Execute the queries in **SQLQuery.sql** file to create tables
+- Execute the queries in **Schema.sql** file to create tables
 - Execute the queries in **Functions.sql** file to create stored procedures and functions
 - Execute **Assembly Line** to let the workers to assemble the parts
 - Execute the **Runner**. If the runner program is not running, the empty bin cannot be replaced
