@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration Tool", "Confi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workstation Andon", "Workstation Andon\Workstation Andon.csproj", "{3242DFE7-C4E2-454C-9373-8649CEF6ED09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly Line Kanban", "Assembly Line Kanban\Assembly Line Kanban.csproj", "{B95BF962-8119-44D3-9E72-5F12C26C4527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Working Simulation", "Working Simulation\Working Simulation.csproj", "{0A9E9360-815E-4984-935A-CEA14E6F7ADF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{3242DFE7-C4E2-454C-9373-8649CEF6ED09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3242DFE7-C4E2-454C-9373-8649CEF6ED09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3242DFE7-C4E2-454C-9373-8649CEF6ED09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B95BF962-8119-44D3-9E72-5F12C26C4527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95BF962-8119-44D3-9E72-5F12C26C4527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95BF962-8119-44D3-9E72-5F12C26C4527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95BF962-8119-44D3-9E72-5F12C26C4527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A9E9360-815E-4984-935A-CEA14E6F7ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9E9360-815E-4984-935A-CEA14E6F7ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9E9360-815E-4984-935A-CEA14E6F7ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9E9360-815E-4984-935A-CEA14E6F7ADF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
