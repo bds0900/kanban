@@ -12,7 +12,7 @@ This project consists of 5 small programs, which are
 
 ### 1. Configuration Tool
 Configuration tool can config order amount,running interval of runner, and number of stations
-
+![configuration](./screenshot/configuration.png)
 
 ### 2. Workstation Simulation
 Where to assemble parts
@@ -25,10 +25,11 @@ Where to assemble parts
 - Experienced/Normal 0.5%
 - Experienced/Super 0.15%
 
+![simulation](./screenshot/simulation.png)
 
 ### 3. Workstation Andon
 Graphic representation of the part counts and status of a single workstationn
-
+![andon](./screenshot/andon.png)
 
 ### 4. Assembly Line Kanban
 To display the status of the entire assembly line. This displays:
@@ -38,11 +39,12 @@ To display the status of the entire assembly line. This displays:
 - Number produced 
 - Yield
 
+![kanban](./screenshot/kanban.png)
 
 ### 5. Working Simulation (Runner)
 Simulation of a runner. A runner picks up all cards from the tray every 5 minutes. Runner goes to the stock room, picks up a new bin of the specific part and location on the card, and then goes to the station and replaces it with the old one.
 
-
+![runner](./screenshot/runner.png)
 
 
 ## Getting Started
