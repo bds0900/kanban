@@ -39,7 +39,7 @@ namespace Assembly_Line_Kanban
             float inProcess = dataAccess.GetInProcess();
             float total = dataAccess.GetTotal();
 
-            float yield = (passed / total) * 100;
+            float yield = total!=0?(passed / total) * 100 : 0;
 
             OrderAmount.Text = orderAmount.ToString();
             Passed.Text = passed.ToString();
