@@ -126,6 +126,10 @@
             this.ActivatedLines.Size = new System.Drawing.Size(120, 94);
             this.ActivatedLines.TabIndex = 4;
             // 
+            // WorkSpeed
+            // 
+            this.WorkSpeed.Tick += new System.EventHandler(this.WorkSpeed_Tick);
+            // 
             // Simulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
