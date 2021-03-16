@@ -93,5 +93,29 @@ namespace Configuration_Tool
                 MessageBox.Show("Please connect first");
             }
         }
+
+        private void DownBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataAccess.ScaleDown();
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Please connect first");
+            }
+        }
+
+        private void UpBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataAccess.ScaleUP();
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Please connect first");
+            }
+        }
     }
 }

@@ -101,6 +101,7 @@
             this.UpBtn.Text = "Scale up x2";
             this.UpBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.UpBtn.UseVisualStyleBackColor = true;
+            this.UpBtn.Click += new System.EventHandler(this.UpBtn_Click);
             // 
             // imageList1
             // 
@@ -121,6 +122,7 @@
             this.DownBtn.Text = "Scale Down x2";
             this.DownBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.DownBtn.UseVisualStyleBackColor = true;
+            this.DownBtn.Click += new System.EventHandler(this.DownBtn_Click);
             // 
             // Configuration
             // 
