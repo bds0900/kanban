@@ -245,26 +245,29 @@ end
 go
 
 
-
+--#region ChangeEmployee
 create procedure ChangeEmployee
 @employeeID int,
 @stationID int
 as
 begin
-declare @isActive bit
-set @isActive=(select Active from Station where StationID=@stationID)
+--declare @isActive bit
+--set @isActive=(select Active from Station where StationID=@stationID)
 begin tran
 --check the station is activated or deactivated
 if(1=(select Active from Station where StationID=@stationID))
+	/*
 	begin
 	--stop the station
 	update Station set Active=0 from Station where StationID=@stationID
 	if @@error<>0
-	begin
-		rollback tran
-		goto error_label
+		begin
+			rollback tran
+			goto error_label
+		end
 	end
-	end
+	*/
+	EXEC Deactivate @stationID
 --replace
 update Station set EmployeeID=@employeeID where StationID=@stationID
 	if @@error<>0
@@ -276,20 +279,33 @@ commit tran
 error_label:
 end
 go
+--#endregion
 
 
+
+--#retion Deactivate
 create procedure Deactivate
 @stationID int
 as
 begin
 begin tran
-update Station set Active=0 from Station where StationID=@stationID
+
+update Employee set Employee.Active=0 
+from Employee 
+inner join Station 
+	on Station.EmployeeID=Employee.EmployeeID 
+where StationID=@stationID
+
 	if @@error<>0
 	begin
 		rollback tran
 		goto error_label
 	end
-update Employee set Employee.Active=0 from Employee inner join Station on Station.EmployeeID=Employee.EmployeeID where StationID=@stationID
+
+update Station set Active=0, EmployeeId=NULL 
+from Station 
+where StationID=@stationID
+
 	if @@error<>0
 	begin
 		rollback tran
@@ -299,28 +315,33 @@ commit tran
 error_label:
 end
 go
+--#endregion
 
 
-
+--#region Activate
 create procedure Activate
 @stationID int,
 @employeeID int
 as
 begin
 begin tran
-update Station set EmployeeID=@employeeID from Station where StationID=@stationID
+
+update Station set Active=1, EmployeeID=@employeeID 
+from Station 
+where StationID=@stationID
+
 	if @@error<>0
 	begin
 		rollback tran
 		goto error_label
 	end
-update Employee set Employee.Active=1 from Employee inner join Station on Station.EmployeeID=Employee.EmployeeID where StationID=@stationID
-	if @@error<>0
-	begin
-		rollback tran
-		goto error_label
-	end
-update Station set Active=1 from Station where StationID=@stationID
+
+update Employee set Employee.Active=1 
+from Employee 
+inner join Station 
+	on Station.EmployeeID=Employee.EmployeeID 
+where StationID=@stationID
+
 	if @@error<>0
 	begin
 		rollback tran
@@ -330,3 +351,4 @@ commit tran
 error_label:
 end
 go
+--#endregion
