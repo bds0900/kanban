@@ -165,7 +165,8 @@ INSERT INTO Configuration
 VALUES
 ('RunInterval','300'),
 ('Stations','5'),
-('OrderAmount','1000');
+('OrderAmount','1000'),
+('Scale','1');
 GO
 
 
