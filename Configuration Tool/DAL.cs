@@ -14,8 +14,8 @@ namespace Configuration_Tool
         DataTable dt;
         SqlDataAdapter adapter;
         const string GetKeyValueQuery= "select ConfigID, ConfigValue from Configuration;";
-        const string ScaleUpQuery = "update EmployeeSkill set Speed = Speed / 2;update Configuration set ConfigValue=ConfigValue/2 where ConfigID='RunInterval' ";
-        const string ScaleDownQuery = "update EmployeeSkill set Speed = Speed * 2;update Configuration set ConfigValue=ConfigValue*2 where ConfigID='RunInterval'";
+        const string ScaleUpQuery = "update Configuration set ConfigValue=ConfigValue*2 where ConfigId='Scale';";
+        const string ScaleDownQuery = "update Configuration set ConfigValue=ConfigValue/2 where ConfigId='Scale';";
 
         public DAL()
         {

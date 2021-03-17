@@ -39,7 +39,7 @@ namespace Working_Simulation
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("select ConfigValue from Configuration where ConfigID='RunInterval'", conn);
+                SqlCommand cmd = new SqlCommand("select convert(float,x.ConfigValue)/convert(float,y.ConfigValue) from (select ConfigValue from Configuration where ConfigID='RunInterval') as x,(select ConfigValue from Configuration where ConfigID='Scale') as y;",                    conn);
                 var interval = Convert.ToInt32(cmd.ExecuteScalar());
                 cmd = new SqlCommand("Runner", conn);
                 cmd.CommandType = CommandType.StoredProcedure;

@@ -50,15 +50,31 @@ declare @plus_minus int
 set @plus_minus=(floor(dbo.RandNumber()*(2-1+1))+1)
 -- result
 declare @result float
-
+declare @work_speed float
+set @work_speed=(
+	select x.Speed/y.ConfigValue 
+	from (
+		select Speed 
+		from EmployeeSkill 
+		inner join Employee 
+			on EmployeeSkill.Type=Employee.Type
+		inner join Station 
+			on Station.EmployeeID=Employee.EmployeeID 
+		where Station.StationID=@StationID
+	) as x, (
+		select ConfigValue from Configuration where ConfigID='Scale'
+	) as y
+)
 if(@plus_minus=1)
-	set @result=(select Speed+Speed*@ran_num from EmployeeSkill inner join Employee on EmployeeSkill.Type=Employee.Type
-	inner join Station on Station.EmployeeID=Employee.EmployeeID where Station.StationID=@StationID)
+begin
+	set @result=@work_speed+@work_speed*@rand_num
+end
+else
+begin 
+	set @result=@work_speed-@work_speed*@ran_num 
+end
 
-else 
-	set @result=(select Speed-Speed*@ran_num from EmployeeSkill inner join Employee on EmployeeSkill.Type=Employee.Type
-	inner join Station on Station.EmployeeID=Employee.EmployeeID where Station.StationID=@StationID)
-	return @result
+return @result
 end
 go
 
